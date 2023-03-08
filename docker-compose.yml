@@ -2,7 +2,7 @@ version: '3'
 
 services:
 #  travel-diary-eureka:
-#    build: ./
+#    build: /Users/kirillsadrin/Documents/projects/own/ИПР/travel-diary-eureka/
 #    container_name: travel-diary-eureka
 #    ports:
 #      - "5776:5776"
