@@ -1,0 +1,27 @@
+server:
+  port: 7080
+spring:
+  application:
+    name: exchange-rate-service
+  rabbitmq:
+    host: travel-diary-rabbitmq
+    port: 15672
+    username: admin
+    password: admin
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://travel-diary-eureka:5776/eureka
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+rabbit:
+  queue-name: travel-diary-exchange-rate
+  exchange-name: travel-diary-exchange
+  routing-key: some-secret-key

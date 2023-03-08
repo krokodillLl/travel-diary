@@ -1,0 +1,90 @@
+version: '3'
+
+services:
+#  travel-diary-eureka:
+#    build: ./
+#    container_name: travel-diary-eureka
+#    ports:
+#      - "5776:5776"
+#    environment:
+#      SERVER_PORT: "5776"
+
+  travel-diary-rabbitmq:
+    image: rabbitmq:3.11.10-management
+    container_name: travel-diary-rabbitmq
+    hostname: travel-diary-rabbitmq
+    ports:
+      - '15672:15672'
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: -rabbit disk_free_limit 1073741824
+#
+#  travel-diary-keycloak-postgres:
+#    container_name: travel-diary-keycloak-postgres
+#    image: postgres:13.0-alpine
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      - POSTGRES_DB=keycloak
+#      - POSTGRES_USER=keycloak
+#      - POSTGRES_PASSWORD=password
+#
+#  travel-diary-mongo:
+#    container_name: travel-diary-mongo
+#    image: mongo:4.4.18
+#    ports:
+#      - '27017:27017'
+#
+#  travel-diary-keycloak:
+#    container_name: travel-diary-keycloak
+#    image: mihaibob/keycloak:18.0.2-legacy
+#    ports:
+#      - '8000:8000'
+#    environment:
+#      DB_VENDOR: POSTGRES
+#      DB_ADDR: travel-diary-keycloak-postgres
+#      DB_DATABASE: keycloak
+#      DB_USER: keycloak
+#      DB_PASSWORD: password
+#      KEYCLOAK_HTTP_PORT: 8000
+#      KEYCLOAK_USER: admin
+#      KEYCLOAK_PASSWORD: admin
+#    command: ["-Djboss.http.port=8000"]
+#    depends_on:
+#      - travel-diary-keycloak-postgres
+#
+#  travel-diary-gateway:
+#    build: /Users/kirillsadrin/Documents/projects/own/ИПР/travel-diary-gateway/
+#    container_name: travel-diary-gateway
+#    ports:
+#      - "8079:8079"
+#      - "5006:5005"
+#    environment:
+#      SERVER_PORT: "8079"
+#    depends_on:
+#      - travel-diary-eureka
+#      - travel-diary-keycloak
+#
+#  travel-diary-post:
+#    build: /Users/kirillsadrin/Documents/projects/own/ИПР/travel-diary-post/
+#    container_name: travel-diary-post
+#    ports:
+##      - "8082:8082"
+#      - "5005:5005"
+#    environment:
+#      SERVER_PORT: "8082"
+#    depends_on:
+#      - travel-diary-keycloak
+#      - travel-diary-mongo
+
+  travel-diary-exchange-rate:
+    build: /Users/kirillsadrin/Documents/projects/own/ИПР/travel-diary-exchange-rate/
+    container_name: travel-diary-exchange-rate
+    ports:
+      - "5007:5005"
+    environment:
+      SERVER_PORT: "7080"
+    depends_on:
+      - travel-diary-rabbitmq
+

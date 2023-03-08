@@ -1,0 +1,21 @@
+spring:
+  data:
+    mongodb:
+      database: test
+      port: 27017
+      host: travel-diary-mongo
+  application:
+    name: post-service
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://travel-diary-eureka:5776/eureka
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

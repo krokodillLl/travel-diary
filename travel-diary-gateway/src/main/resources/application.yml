@@ -1,0 +1,49 @@
+server:
+  port: 8079
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://travel-diary-keycloak:8000/auth/realms/travel-diary-realm
+security:
+  access:
+    path:
+      moderator: moderator-access
+      admin: admin-access
+    role:
+      name:
+        moderator: MODERATOR
+        admin: ADMIN
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://travel-diary-eureka:5776/eureka/
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: gateway
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
