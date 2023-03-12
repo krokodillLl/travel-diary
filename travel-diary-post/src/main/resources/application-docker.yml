@@ -6,6 +6,14 @@ spring:
       host: travel-diary-mongo
   application:
     name: post-service
+  rabbitmq:
+    host: travel-diary-rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+rabbit:
+  queue-name: travel-diary-exchange-rate
+
 eureka:
   instance:
     preferIpAddress: true

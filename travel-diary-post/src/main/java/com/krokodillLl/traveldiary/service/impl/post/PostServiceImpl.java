@@ -2,9 +2,9 @@ package com.krokodillLl.traveldiary.service.impl.post;
 
 import com.krokodillLl.traveldiary.domain.entity.PostEntity;
 import com.krokodillLl.traveldiary.domain.repository.PostRepository;
+import com.krokodillLl.traveldiary.model.in.PostIn;
+import com.krokodillLl.traveldiary.model.out.PostOut;
 import com.krokodillLl.traveldiary.service.api.post.PostService;
-import com.krokodillLl.traveldiary.service.api.post.in.PostIn;
-import com.krokodillLl.traveldiary.service.api.post.out.PostOut;
 import com.krokodillLl.traveldiary.service.impl.util.ModelEntityConverter;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;

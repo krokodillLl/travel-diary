@@ -18,14 +18,44 @@ repositories {
 	mavenCentral()
 }
 
+configurations {
+	xsd2java
+}
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-amqp'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.1'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.0'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	xsd2java (
+			'com.sun.xml.bind:jaxb-xjc:4.0.2',
+			'com.sun.xml.bind:jaxb-impl:4.0.2'
+	)
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
+	implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.2'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.amqp:spring-rabbit-test'
+}
+tasks.register('xsd2java') {
+	def jaxbTargetDir = file("src/main/java/")
+
+	doLast {
+		jaxbTargetDir.mkdirs()
+
+		ant.taskdef(name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.xsd2java.asPath)
+		ant.jaxbTargetDir = jaxbTargetDir
+
+		ant.xjc(
+				destdir: '${jaxbTargetDir}',
+				package: 'com.krokodillLl.traveldiary.exchangerate.external.model.generated',
+				schema: 'src/main/resources/xsd/cbrValCurs.xsd'
+		)
+
+	}
 }
 
 tasks.named('test') {

@@ -5,9 +5,19 @@ spring:
     name: exchange-rate-service
   rabbitmq:
     host: travel-diary-rabbitmq
-    port: 15672
+    port: 5672
     username: admin
     password: admin
+rabbit:
+  queue-name: travel-diary-exchange-rate
+  exchange-name: travel-diary-exchange
+  routing-key: some-secret-key
+external:
+  exchange-rate:
+    url: http://www.cbr.ru/scripts/XML_daily.asp
+scheduler:
+  cron-expression: 0 * * * * *
+
 eureka:
   instance:
     preferIpAddress: true
@@ -18,10 +28,5 @@ eureka:
       defaultZone: http://travel-diary-eureka:5776/eureka
 logging:
   level:
-    org:
-      springframework:
-        security: DEBUG
-rabbit:
-  queue-name: travel-diary-exchange-rate
-  exchange-name: travel-diary-exchange
-  routing-key: some-secret-key
+    org.springframework.security: DEBUG
+    com.krokodillLl.traveldiary.exchangerate.external: DEBUG

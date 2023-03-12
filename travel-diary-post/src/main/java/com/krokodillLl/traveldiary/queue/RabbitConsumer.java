@@ -1,12 +1,12 @@
-package com.krokodillLl.traveldiaryexchangerate.service.impl;
+package com.krokodillLl.traveldiary.queue;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 @Slf4j
-public class RabbitConsumerService {
+public class RabbitConsumer {
 
     @RabbitListener(queues = {"${rabbit.queue-name}"})
     public void consume(String message) {

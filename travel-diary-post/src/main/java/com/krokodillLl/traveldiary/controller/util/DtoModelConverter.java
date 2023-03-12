@@ -1,10 +1,9 @@
 package com.krokodillLl.traveldiary.controller.util;
 
 import com.krokodillLl.traveldiary.model.in.PostRestIn;
+import com.krokodillLl.traveldiary.model.out.PostOut;
 import com.krokodillLl.traveldiary.model.out.PostRestOut;
-import com.krokodillLl.traveldiary.service.api.post.in.PostIn;
-import com.krokodillLl.traveldiary.service.api.post.out.PostOut;
-import com.krokodillLl.traveldiary.service.impl.post.in.BasePostIn;
+import com.krokodillLl.traveldiary.model.in.PostIn;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +26,7 @@ public class DtoModelConverter {
     }
 
     public PostIn convert(PostRestIn postIn) {
-        return BasePostIn.builder()
+        return PostIn.builder()
                 .id(postIn.getId())
                 .text(postIn.getText())
                 .build();

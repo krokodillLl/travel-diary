@@ -1,9 +1,8 @@
 package com.krokodillLl.traveldiary.service.impl.util;
 
 import com.krokodillLl.traveldiary.domain.entity.PostEntity;
-import com.krokodillLl.traveldiary.service.api.post.in.PostIn;
-import com.krokodillLl.traveldiary.service.api.post.out.PostOut;
-import com.krokodillLl.traveldiary.service.impl.post.out.BasePostOut;
+import com.krokodillLl.traveldiary.model.in.PostIn;
+import com.krokodillLl.traveldiary.model.out.PostOut;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +17,7 @@ public class ModelEntityConverter {
             return Optional.empty();
         }
         return Optional.of(
-                BasePostOut.builder()
+                PostOut.builder()
                         .id(postEntity.getId())
                         .text(postEntity.getText())
                         .createDate(postEntity.getCreateDate())

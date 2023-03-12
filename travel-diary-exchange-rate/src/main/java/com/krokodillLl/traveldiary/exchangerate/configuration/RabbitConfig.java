@@ -1,4 +1,4 @@
-package com.krokodillLl.traveldiaryexchangerate.configuration;
+package com.krokodillLl.traveldiary.exchangerate.configuration;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@RequiredArgsConstructor
 public class RabbitConfig {
     @Value("${rabbit.queue-name}")
     private String queueName;
@@ -20,10 +21,12 @@ public class RabbitConfig {
     @Value("${rabbit.routing-key}")
     private String routingKey;
 
+    private final RabbitTemplate rabbitTemplate;
+
     @PostConstruct
     private void init() {
             rabbitTemplate.setExchange(exchangeName);
-            rabbitTemplate.setDefaultReceiveQueue(queueName);
+            rabbitTemplate.setRoutingKey(routingKey);
     }
 
     @Bean
