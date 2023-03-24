@@ -1,8 +1,8 @@
 package com.krokodillLl.traveldiary.service.api.post;
 
 
-import com.krokodillLl.traveldiary.model.in.PostIn;
-import com.krokodillLl.traveldiary.model.out.PostOut;
+import com.krokodillLl.traveldiary.model.service.in.PostIn;
+import com.krokodillLl.traveldiary.model.service.out.PostOut;
 
 import java.util.List;
 import java.util.UUID;

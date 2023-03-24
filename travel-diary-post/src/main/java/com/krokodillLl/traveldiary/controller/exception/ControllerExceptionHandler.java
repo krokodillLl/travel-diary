@@ -1,6 +1,6 @@
 package com.krokodillLl.traveldiary.controller.exception;
 
-import com.krokodillLl.traveldiary.model.out.ErrorRestOut;
+import com.krokodillLl.traveldiary.model.rest.out.ErrorRestOut;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpHeaders;

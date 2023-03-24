@@ -1,4 +1,4 @@
-package com.krokodillLl.traveldiary.model.out;
+package com.krokodillLl.traveldiary.model.rest.out;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;

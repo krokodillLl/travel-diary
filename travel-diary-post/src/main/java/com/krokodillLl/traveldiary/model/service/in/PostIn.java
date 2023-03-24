@@ -1,4 +1,4 @@
-package com.krokodillLl.traveldiary.model.in;
+package com.krokodillLl.traveldiary.model.service.in;
 
 import lombok.Builder;
 import lombok.Data;

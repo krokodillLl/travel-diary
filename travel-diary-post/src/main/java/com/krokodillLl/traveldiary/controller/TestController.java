@@ -1,6 +1,6 @@
 package com.krokodillLl.traveldiary.controller;
 
-import com.krokodillLl.traveldiary.model.out.ErrorRestOut;
+import com.krokodillLl.traveldiary.model.rest.out.ErrorRestOut;
 import com.netflix.appinfo.ApplicationInfoManager;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

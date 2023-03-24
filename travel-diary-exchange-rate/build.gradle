@@ -16,6 +16,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 }
 
 configurations {
@@ -27,6 +28,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.1'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.0'
+	implementation 'com.krokodillLl:travel-diary-spring-boot-starter:0.1.0'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 

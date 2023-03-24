@@ -16,6 +16,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 }
 
 dependencies {
@@ -23,8 +24,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'
-	compileOnly 'org.projectlombok:lombok'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.0'
+	implementation 'com.krokodillLl:travel-diary-spring-boot-starter:0.1.0'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 

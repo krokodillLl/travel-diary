@@ -1,9 +1,9 @@
 package com.krokodillLl.traveldiary.controller.util;
 
-import com.krokodillLl.traveldiary.model.in.PostRestIn;
-import com.krokodillLl.traveldiary.model.out.PostOut;
-import com.krokodillLl.traveldiary.model.out.PostRestOut;
-import com.krokodillLl.traveldiary.model.in.PostIn;
+import com.krokodillLl.traveldiary.model.rest.in.PostRestIn;
+import com.krokodillLl.traveldiary.model.service.out.PostOut;
+import com.krokodillLl.traveldiary.model.rest.out.PostRestOut;
+import com.krokodillLl.traveldiary.model.service.in.PostIn;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

@@ -1,8 +1,8 @@
 package com.krokodillLl.traveldiary.service.impl.util;
 
 import com.krokodillLl.traveldiary.domain.entity.PostEntity;
-import com.krokodillLl.traveldiary.model.in.PostIn;
-import com.krokodillLl.traveldiary.model.out.PostOut;
+import com.krokodillLl.traveldiary.model.service.in.PostIn;
+import com.krokodillLl.traveldiary.model.service.out.PostOut;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

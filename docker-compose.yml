@@ -36,6 +36,12 @@ services:
     ports:
       - '27017:27017'
 
+  travel-diary-redis:
+    image: redis:alpine
+    container_name: travel-diary-redis
+    ports:
+      - "6379:6379"
+
   travel-diary-keycloak:
     container_name: travel-diary-keycloak
     image: mihaibob/keycloak:18.0.2-legacy
@@ -77,6 +83,7 @@ services:
     depends_on:
       - travel-diary-keycloak
       - travel-diary-mongo
+      - travel-diary-redis
 
   travel-diary-exchange-rate:
     build: /Users/kirillsadrin/Documents/projects/own/ИПР/travel-diary-exchange-rate/

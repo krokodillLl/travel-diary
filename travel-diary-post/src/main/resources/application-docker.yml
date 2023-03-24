@@ -1,11 +1,14 @@
 spring:
+  application:
+    name: post-service
   data:
     mongodb:
       database: test
       port: 27017
       host: travel-diary-mongo
-  application:
-    name: post-service
+    redis:
+      host: travel-diary-redis
+      port: 6379
   rabbitmq:
     host: travel-diary-rabbitmq
     port: 5672

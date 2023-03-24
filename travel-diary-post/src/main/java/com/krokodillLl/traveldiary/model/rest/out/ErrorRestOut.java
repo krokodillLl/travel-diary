@@ -1,4 +1,4 @@
-package com.krokodillLl.traveldiary.model.out;
+package com.krokodillLl.traveldiary.model.rest.out;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package com.krokodillLl.traveldiary.exchangerate.util;
 
 import com.krokodillLl.traveldiary.exchangerate.external.model.generated.ValCurs;
-import com.krokodillLl.traveldiary.exchangerate.queue.model.out.ExchangeRateQueueOut;
+import com.krokodillLl.traveldiaryspringbootstarter.model.queue.ExchangeRateQueue;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +12,8 @@ import java.util.Locale;
 
 @Component
 public class ExternalModelToQueueModelConverter {
-    public ExchangeRateQueueOut convert(ValCurs externalCurrentExchangeRates) {
-        return ExchangeRateQueueOut.builder()
+    public ExchangeRateQueue convert(ValCurs externalCurrentExchangeRates) {
+        return ExchangeRateQueue.builder()
                 .date(externalCurrentExchangeRates.getDate())
                 .sourceName(externalCurrentExchangeRates.getName())
                 .currencies(
@@ -22,14 +22,14 @@ public class ExternalModelToQueueModelConverter {
                 .build();
     }
 
-    private List<ExchangeRateQueueOut.Currency> convert(List<ValCurs.Valute> externalCurrencies) {
+    private List<ExchangeRateQueue.Currency> convert(List<ValCurs.Valute> externalCurrencies) {
         return externalCurrencies.stream()
                 .map(this::convert)
                 .toList();
     }
 
-    private ExchangeRateQueueOut.Currency convert(ValCurs.Valute externalCurrency) {
-        return ExchangeRateQueueOut.Currency.builder()
+    private ExchangeRateQueue.Currency convert(ValCurs.Valute externalCurrency) {
+        return ExchangeRateQueue.Currency.builder()
                 .currencyCode(externalCurrency.getCharCode())
                 .currencyName(externalCurrency.getName())
                 .nominal(externalCurrency.getNominal())

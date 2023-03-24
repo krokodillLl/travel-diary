@@ -1,9 +1,9 @@
 package com.krokodillLl.traveldiary.controller.post;
 
 import com.krokodillLl.traveldiary.controller.util.DtoModelConverter;
-import com.krokodillLl.traveldiary.model.in.PostRestIn;
-import com.krokodillLl.traveldiary.model.out.ErrorRestOut;
-import com.krokodillLl.traveldiary.model.out.PostRestOut;
+import com.krokodillLl.traveldiary.model.rest.in.PostRestIn;
+import com.krokodillLl.traveldiary.model.rest.out.ErrorRestOut;
+import com.krokodillLl.traveldiary.model.rest.out.PostRestOut;
 import com.krokodillLl.traveldiary.service.api.post.PostService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
